@@ -28,9 +28,35 @@ public class Zad {
         runOperation(minOperation, numbers);
 
         MathOperation lambda = (List<Integer> value) -> value.get(0);
-        runOperation(lambda,numbers);
+        runOperation(lambda, numbers);
 
+        MathOperation lambda2 = (value2) -> {
+            int max = numbers.get(0);
+            for (Integer i : numbers) {
+                if (max < i) {
+                    max = i;
+                }
 
+            }
+            return max;
+        };
+
+        System.out.println("lambda2 = " + lambda2);
+        runOperation(lambda2, numbers);
+
+        MathOperation lambda3 = (value3) -> {
+            int min = numbers.get(0);
+            for (Integer i : numbers) {
+                if (min > i) {
+                    min = i;
+                }
+
+            }
+            return min;
+        };
+
+        System.out.println("lambda3 = " + lambda3);
+        runOperation(lambda3, numbers);
 
 
     }
