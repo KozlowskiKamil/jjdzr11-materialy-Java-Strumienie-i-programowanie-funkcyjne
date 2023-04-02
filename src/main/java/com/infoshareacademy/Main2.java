@@ -1,6 +1,7 @@
 package com.infoshareacademy;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Main2 {
@@ -39,11 +40,16 @@ public class Main2 {
         };
 
         MathOperation mathOperation3 = (List<Integer> integers) -> numbers.get(3);
+        MathOperation mathOperation4 = (List<Integer> integers) -> {
+            Collections.sort(numbers);
+            return numbers.get(0);
+        };
 
 
         printResult(numbers, mathOperation);
         printResult(numbers, mathOperation2);
         printResult(numbers, mathOperation3);
+        printResult(numbers, mathOperation4);
 
 
     }
