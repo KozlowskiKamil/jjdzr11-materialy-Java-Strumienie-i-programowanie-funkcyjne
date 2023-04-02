@@ -39,10 +39,17 @@ public class Main2 {
             return max;
         };
 
-        MathOperation mathOperation3 = (List<Integer> integers) -> numbers.get(3);
-        MathOperation mathOperation4 = (List<Integer> integers) -> {
+
+        MathOperation mathOperation3 = (List<Integer> integers) -> numbers.get(3); // metoda get
+
+        MathOperation mathOperation4 = (List<Integer> integers) -> {  // sortowanie min number
             Collections.sort(numbers);
             return numbers.get(0);
+        };
+
+        MathOperation mathOperation5 = (List<Integer> integers) -> { // sortowanie max number
+            Collections.sort(numbers);
+            return numbers.get(numbers.size() - 1);
         };
 
 
@@ -50,6 +57,7 @@ public class Main2 {
         printResult(numbers, mathOperation2);
         printResult(numbers, mathOperation3);
         printResult(numbers, mathOperation4);
+        printResult(numbers, mathOperation5);
 
 
     }
