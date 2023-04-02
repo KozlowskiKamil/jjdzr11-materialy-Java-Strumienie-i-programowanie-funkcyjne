@@ -1,3 +1,4 @@
+/*
 package com.infoshareacademy;
 
 import java.util.ArrayList;
@@ -22,3 +23,4 @@ public class Cwiczenie8 {
         System.out.println("valueCalc = " + valueCalc);
     }
 }
+*/
