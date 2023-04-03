@@ -1,41 +1,42 @@
 package com.infoshareacademy;
 
 
-import com.infoshareacademy.factories.CarFactory;
-import com.infoshareacademy.model.Car;
-import com.infoshareacademy.model.Engine;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
+import java.util.function.Predicate;
+import java.util.stream.Stream;
 
 public class App {
     public static void main(String[] args) {
+        Stream<String> stringsStream = Stream.of("napis", "Tomasz", "");
 
-        Car car1 = CarFactory.createRandomCar();
-        Car car2 = CarFactory.createRandomCar();
-        Car car3 = CarFactory.createRandomCar();
-        Car car4 = CarFactory.createRandomCar();
+        List<String> strings = stringsStream.toList();
+//        List<String> strings = stringsStream.collect(Collectors.toList());
 
-        car2.setEngine(null);
-        car3.setEngine(null);
+//        stringsStream.forEach(System.out::println);
+        System.out.println(strings);
+    }
 
 
-        List<Car> cars = new ArrayList<>();
-        cars.add(car1);
-        cars.add(car2);
-        cars.add(car3);
-        cars.add(car4);
+    private static void printResult(MathOperation mathOperation, List<Integer> numbers) {
+        Integer calculatedValue = mathOperation.calculate(numbers);
+        System.out.println(calculatedValue);
+    }
 
-        for (Car car : cars) {
-            Optional<Engine> engineOptional = Optional.ofNullable(car.getEngine());
-            if (engineOptional.isPresent()) {
-                System.out.println("engineOptional = " + engineOptional.get().getPower());
-            } else {
-                System.out.println("Brak silnika ");
+    private static void predicateExample() {
+        List<String> strings = List.of("Tomasz", "Kinga", "", "Mikołaj", "Przemysław", "");
 
+        System.out.println(strings.size());
+
+        Predicate<String> noEmptyString = s -> !s.isEmpty();
+
+        List<String> result = new ArrayList<>();
+        for (String s : strings) {
+            if (noEmptyString.test(s)) {
+                result.add(s);
             }
         }
 
+        System.out.println(result.size());
     }
 }
