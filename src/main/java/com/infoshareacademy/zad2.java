@@ -20,12 +20,14 @@ public class zad2 {
         car2.setEngine(null);
         car3.setEngine(null);
 
-
+        System.out.println("wwwwwwwwwwwwwww" + car1.geaAdtName());
         List<Car> cars = new ArrayList<>();
         cars.add(car1);
         cars.add(car2);
         cars.add(car3);
         cars.add(car4);
+
+
 
         for (Car car : cars) {
             Optional<Engine> engineOptional = Optional.ofNullable(car.getEngine());

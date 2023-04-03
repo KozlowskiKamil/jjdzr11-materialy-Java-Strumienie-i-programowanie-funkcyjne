@@ -1,6 +1,8 @@
 package com.infoshareacademy.Zadania;
 
+import com.infoshareacademy.factories.CarFactory;
 import com.infoshareacademy.factories.EngineFactory;
+import com.infoshareacademy.model.Car;
 import com.infoshareacademy.model.Engine;
 
 import java.util.ArrayList;
@@ -10,6 +12,7 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
+import java.util.stream.Stream;
 
 public class Zad1 {
     public static void main(String[] args) {
@@ -17,6 +20,7 @@ public class Zad1 {
         List<String> strings = new ArrayList<>(List.of("Kamil", "Ola", "Kuba", "", "Kasia", "", ""));
         List<Integer> integers = new ArrayList<>(List.of(-1, -2, -3, -4, 0, 1, 2, 3, 4, 5, 6, 7, 8));
         List<Engine> engines = EngineFactory.generateEngines(6);
+        List<Car> cars = CarFactory.createRandomCars(6);
 
 
         List<String> result = new ArrayList<>();
@@ -100,10 +104,31 @@ public class Zad1 {
 
         System.out.println("\nZad 6 ----------------------------------------\n");
 
-
-
+        cars.forEach(System.out::println);
+        cars.forEach(System.out::print);
+        //    cars.forEach(s -> System.out.println(s));  to samo co wyżej
 
 
         System.out.println("\nZad 7 ----------------------------------------\n");
+        Stream<String> str = Stream.of("Kamil", "Kuba");
+        str.forEach(System.out::println);
+
+        List<Car> cars1 = CarFactory.createRandomCars(4);
+        for (Car c : cars1) {
+            System.out.println("" + c.geaAdtName());
+        }
+
+
+        System.out.println("\nZad 8 ----------------------------------------\n");
+
+        Stream<Integer> stream = Stream.of(1, 2, 3, 4, 5);
+        List<Integer> list = stream.toList();
+        list.stream().forEach(System.out::println);
+
+        System.out.println(strings.stream().anyMatch(s -> s.equals("Kamil")));
+
+        System.out.println("\nZad 9 ----------------------------------------\n");
+
+
     }
 }

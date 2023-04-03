@@ -1,6 +1,8 @@
 package com.infoshareacademy.model;
 
+import java.util.Comparator;
 import java.util.Objects;
+import java.util.function.Function;
 
 public class Car {
     private String name;
@@ -40,9 +42,16 @@ public class Car {
                 '}';
     }
 
+
     public Color getColor() {
         return color;
     }
+
+    public String geaAdtName() {
+        name = "*" + name + "*";
+        return name;
+    }
+
 
     public void setColor(Color color) {
         this.color = color;
