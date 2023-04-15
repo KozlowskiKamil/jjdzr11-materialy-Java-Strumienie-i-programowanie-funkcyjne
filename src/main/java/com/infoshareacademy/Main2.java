@@ -7,7 +7,10 @@ import java.util.List;
 public class Main2 {
     public static void main(String[] args) {
         InterfaceFunc2 interfaceFunc1 = (one, two) -> one / two;
-        InterfaceFunc2 interfaceFunc2 = (one, two) -> one + two;
+        InterfaceFunc2 interfaceFunc2 = (one, two) -> {
+            double result = one + two;
+            return result;
+        };
         InterfaceFunc2 interfaceFunc3 = (one, two) -> one * two;
 
         //    interfaceFunc2.blabla(2.2, 3.3);
@@ -15,7 +18,8 @@ public class Main2 {
         myTest(interfaceFunc1);
         myTest(interfaceFunc2);
         myTest(interfaceFunc3);
-
+        double nowy = interfaceFunc2.blabla(2,2);
+        System.out.println("nowy = " + nowy);
 
         List<Integer> numbers = new ArrayList<>(List.of(1, 2, 3, 4, 5, 6));
         MathOperation mathOperation = (List<Integer> integers) -> {
