@@ -128,7 +128,8 @@ public class ZadaniaPoSwietach {
                 .flatMapToInt(CharSequence::chars).mapToObj(c -> (char) c).collect(Collectors.toSet());
         System.out.println("collect1 = " + collect1);
         collect1.stream().sorted().forEach(s -> System.out.println("s = " + s));
-
+        long count1 = collect1.stream().count();
+        System.out.println("count1 = " + count1);
 
 
     }
