@@ -22,7 +22,7 @@ public class Zad13a {
         cars.stream().sorted((car1, car2) -> car2.getEngine().getPower() - car1.getEngine()
                 .getPower()).forEach(car -> System.out.print(" " + car.getEngine().getPower()));
 
-        List<Car> cars1 =  cars.stream().sorted((car1, car2) -> car2.getEngine().getPower() - car1.getEngine()
+        List<Car> cars1 = cars.stream().sorted((car1, car2) -> car2.getEngine().getPower() - car1.getEngine()
                 .getPower()).collect(Collectors.toList());
 
         cars1.forEach(car -> System.out.println("car = " + car.getEngine().getPower()));
