@@ -4,7 +4,7 @@ import java.util.Comparator;
 import java.util.Objects;
 import java.util.function.Function;
 
-public class Car {
+public class Car implements Comparable {
     private String name;
     private int maxSpeed;
     private Engine engine;
@@ -79,5 +79,10 @@ public class Car {
 
     public void setEngine(Engine engine) {
         this.engine = engine;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        return 0;
     }
 }

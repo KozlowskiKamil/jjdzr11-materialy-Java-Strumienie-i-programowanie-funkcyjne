@@ -5,10 +5,8 @@ import com.infoshareacademy.factories.EngineFactory;
 import com.infoshareacademy.model.Car;
 import com.infoshareacademy.model.Engine;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Objects;
+import java.lang.reflect.Array;
+import java.util.*;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -92,11 +90,52 @@ public class ZadaniaPoSwietach {
         List<Car> cars = carList.stream().sorted(Comparator.comparing(car -> car.getEngine().getPower())).toList();
         cars.stream().limit(3).forEach(s -> System.out.println("s = " + s));  // limit(3) tylko 3 pierwsze wyniki
 
+        List<Car> cars1 = carList.stream().filter(car -> car.getEngine().getPower() > 90).sorted().toList();
+        System.out.println("cars1 = " + cars1);  //  powinno  działać ald wywala błąd brak interface co parable w cars? - tak brakowało implementacji
+
         System.out.println("\n================ Zadanie 15 =========================");
+        Set<String> stringSet = new HashSet<>();
+        stringSet.add("Java");
+        stringSet.add("html");
+        stringSet.add("http");
+        stringSet.add("CSS");
+        stringSet.add("Ka mil");
+
+        long count = stringSet.stream().filter(str -> Character.isLowerCase(str.charAt(0))).count();
+        System.out.println("count lower case= " + count);
+        stringSet.forEach(str -> System.out.println(str.toUpperCase()));
+        stringSet.stream().filter(s -> s.contains(" ")).forEach(s -> System.out.println("spacja = " + s));
+        List<Integer> integers1 = stringSet.stream().map(s -> s.length()).toList();
+        System.out.println("integers1 = " + integers1);
+        colectionToLength(stringSet);
+
+        //zliczanie najdłuższego wyrazu
+        stringSet.stream().collect(Collectors.maxBy(Comparator.comparingInt(s -> s.length())))
+                .ifPresent(s -> {
+                    System.out.println("s = " + s.length());
+                    System.out.println("s = " + s);
+                });
 
 
         System.out.println("================ Zadanie 16 =========================");
+        List<String> stringList = new ArrayList<>();
+        stringList.add("hello");
+        stringList.add("iSA");
+        stringList.add("java");
+        stringList.add("streams");
+
+        Set<Character> collect1 = stringList.stream()
+                .flatMapToInt(CharSequence::chars).mapToObj(c -> (char) c).collect(Collectors.toSet());
+        System.out.println("collect1 = " + collect1);
+        collect1.stream().sorted().forEach(s -> System.out.println("s = " + s));
 
 
+
+    }
+
+
+    public static void colectionToLength(Set<String> strings) {
+        List<Integer> integers = strings.stream().map(s -> s.length()).toList();
+        System.out.println("integers method = " + integers);
     }
 }
