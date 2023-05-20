@@ -117,6 +117,7 @@ public class ZadaniaPoSwietach {
                 });
 
 
+
         System.out.println("================ Zadanie 16 =========================");
         List<String> stringList = new ArrayList<>();
         stringList.add("hello");
